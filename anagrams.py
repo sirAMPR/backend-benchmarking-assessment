@@ -8,9 +8,7 @@ Module provides a function, find_anagrams(), which can be used to do the same
 for an arbitrary list of strings.
 """
 
-# Your name here, and any other people/sources who helped.
-# Give credit where credit is due.
-__author__ = "???"
+__author__ = "aradcliff"
 
 import sys
 
@@ -27,12 +25,20 @@ def find_anagrams(words):
     Example:
     {'dgo': ['dog'], 'act': ['cat', 'act']}
     """
-    anagrams = {
-        alphabetize(word): [
-            w for w in words
-            if alphabetize(w) == alphabetize(word)]
-        for word in words}
+    anagrams = {}
+    for word in words:
+        key = alphabetize(word)
+        if key in anagrams:
+            anagrams[key].append(word)
+        anagrams[key] = [word]
     return anagrams
+
+    # anagrams = {
+    #     alphabetize(word): [
+    #         w for w in words
+    #         if alphabetize(w) == alphabetize(word)]
+    #     for word in words}
+    # return anagrams
 
 
 def main(args):
