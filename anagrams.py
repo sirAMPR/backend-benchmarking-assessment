@@ -30,7 +30,8 @@ def find_anagrams(words):
         key = alphabetize(word)
         if key in anagrams:
             anagrams[key].append(word)
-        anagrams[key] = [word]
+        else:
+            anagrams[key] = [word]
     return anagrams
 
     # anagrams = {
